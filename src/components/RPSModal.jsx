@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Header, Icon, Modal, Card, Image } from 'semantic-ui-react';
+import RPSCard from './RPSCard';
+import { Header, Modal, Card, Image, Grid } from 'semantic-ui-react';
 
 const RPSModal = ({ rpsItem }) => {
   const [open, setOpen] = React.useState(false);
@@ -15,21 +16,21 @@ const RPSModal = ({ rpsItem }) => {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
     >
-      <Header icon='archive' content='Archive Old Messages' />
       <Modal.Content>
-        <p>
-          Your inbox is getting full, would you like us to enable automatic
-          archiving of old messages?
-        </p>
+        <Header data-cy='rps-match-result' as='h1' textAlign='center'>Test result</Header>
+        <Grid columns='three'>
+          <Grid.Row>
+            <Grid.Column data-cy='rps-user-choice'>
+              <RPSCard rpsItem={rpsItem} />
+            </Grid.Column>
+            <Grid.Column>
+            </Grid.Column>
+            <Grid.Column data-cy='rps-cpu-choice'>
+              <RPSCard rpsItem={rpsItem} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </Modal.Content>
-      <Modal.Actions>
-        <Button color='red' onClick={() => setOpen(false)}>
-          <Icon name='remove' /> No
-        </Button>
-        <Button color='green' onClick={() => setOpen(false)}>
-          <Icon name='checkmark' /> Yes
-        </Button>
-      </Modal.Actions>
     </Modal>
   );
 };
