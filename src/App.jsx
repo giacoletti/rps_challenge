@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import RPS from './modules/RPS';
-import RPSCard from './components/RPSCard';
+import RPSModal from './components/RPSModal';
 import { Container, Header, Grid } from "semantic-ui-react";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
   const rpsCardsList = rpsArray.map((rpsItem) => {
     return (
       <div data-cy={`rps-card-${rpsItem.id}`} key={rpsItem.id}>
-        <RPSCard rpsItem={rpsItem} />
+        <RPSModal rpsItem={rpsItem}></RPSModal>
       </div>
     )
   });
