@@ -3,17 +3,17 @@ const RPS = {
     {
       id: 1,
       name: "rock",
-      image: "https://i.ibb.co/GQ9KV4d/rock-card.jpg"
+      image: "https://i.ibb.co/85RsmCg/rock-card.jpg"
     },
     {
       id: 2,
       name: "paper",
-      image: "https://i.ibb.co/SBL3Ysr/paper-card.jpg"
+      image: "https://i.ibb.co/K2PsRrs/paper-card.jpg"
     },
     {
       id: 3,
       name: "scissor",
-      image: "https://i.ibb.co/4j3cNtk/scissor-card.jpg"
+      image: "https://i.ibb.co/2kd8Gtw/scissor-card.jpg"
     }
   ],
 
