@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <Container>
-      <Header data-cy='rps-header'>Let's play Rock Paper Scissor</Header>
+      <Header as="h2" data-cy='rps-header'>Let's play Rock Paper Scissor</Header>
       <Header as="h3" data-cy='rps-subheader'>Pick your card!</Header>
       <Grid>{rpsCardsList}</Grid>
     </Container>
