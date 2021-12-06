@@ -1,10 +1,18 @@
 describe('Visiting the application, a user', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        cy.stub(win.Math, "floor").returns(2).as('mathStub');
+      }
+    });
     cy.get('[data-cy=rps-card-1]').click();
   });
 
   describe('is expected to open modal and', () => {
+    it('is expected to call Math floor function once', () => {
+      cy.get('@mathStub').should('be.calledOnce');
+    });
+
     it('is expected to display win message', () => {
       cy.get('[data-cy=rps-modal]').within(() => {
         cy.get('[data-cy=rps-match-result]').should('contain.text', 'You win!');
