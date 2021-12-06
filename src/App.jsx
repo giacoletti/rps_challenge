@@ -49,7 +49,7 @@ const App = () => {
           </Grid.Column>
           <Grid.Column textAlign='center'>
             <Label data-cy="rps-user-score" size="big" color="teal"><Icon name='user' />{userScore}</Label>
-            <Label size="big" color="orange"><Icon name='computer' />{cpuScore}</Label>
+            <Label data-cy="rps-cpu-score" size="big" color="orange"><Icon name='computer' />{cpuScore}</Label>
           </Grid.Column>
         </Grid.Row>
       </Grid>

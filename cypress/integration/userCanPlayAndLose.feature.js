@@ -25,10 +25,14 @@ describe('Visiting the application, a user', () => {
       });
     });
 
-    it('is expected to display cpu chosen scissor card', () => {
+    it('is expected to display cpu chosen paper card', () => {
       cy.get('[data-cy=rps-cpu-choice]').within(() => {
         cy.get('.image').should('have.attr', 'name', 'paper');
       });
+    });
+
+    it('is expected to update cpu score', () => {
+      cy.get('[data-cy=rps-cpu-score]').should('contain.text', 1);
     });
   });
 });

@@ -25,7 +25,7 @@ describe('Visiting the application, a user', () => {
       });
     });
 
-    it('is expected to display cpu chosen scissor card', () => {
+    it('is expected to display cpu chosen rock card', () => {
       cy.get('[data-cy=rps-cpu-choice]').within(() => {
         cy.get('.image').should('have.attr', 'name', 'rock');
       });

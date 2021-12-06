@@ -13,7 +13,7 @@ describe('Visiting the application, a user', () => {
       cy.get('@mathStub').should('be.calledOnce');
     });
 
-    it('is expected to display win message', () => {
+    it("is expected to display 'You win!' message", () => {
       cy.get('[data-cy=rps-modal]').within(() => {
         cy.get('[data-cy=rps-match-result]').should('contain.text', 'You win!');
       });
