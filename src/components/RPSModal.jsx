@@ -5,16 +5,21 @@ import { Header, Modal, Card, Image, Grid } from 'semantic-ui-react';
 const RPSModal = ({ rpsItem }) => {
   const [open, setOpen] = React.useState(false);
 
+  const onOpenHandler = (event) => {
+    // event.target.name
+    setOpen(true);
+  };
+
   return (
     <Modal
       data-cy='rps-modal'
       closeIcon
       open={open}
       trigger={<Card>
-        <Image src={rpsItem.image} wrapped ui={false} />
+        <Image name={rpsItem.name} src={rpsItem.image} ui={false} />
       </Card>}
       onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
+      onOpen={onOpenHandler}
     >
       <Modal.Content>
         <Header data-cy='rps-match-result' as='h1' textAlign='center'>Test result</Header>
