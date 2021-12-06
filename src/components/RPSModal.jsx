@@ -3,12 +3,14 @@ import RPSCard from './RPSCard';
 import RPS from '../modules/RPS';
 import { Header, Modal, Card, Image, Grid } from 'semantic-ui-react';
 
-const RPSModal = ({ rpsItem }) => {
+const RPSModal = ({ rpsItem, updateScore }) => {
   const [open, setOpen] = useState(false);
   const [matchResult, setMatchResult] = useState({});
 
   const onOpenHandler = (event) => {
-    setMatchResult(RPS.playMatch(event.target.name));
+    const result = RPS.playMatch(event.target.name);
+    setMatchResult(result);
+    updateScore(result);
     setOpen(true);
   };
 
