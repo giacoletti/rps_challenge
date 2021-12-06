@@ -19,6 +19,31 @@ const RPS = {
 
   index() {
     return this.rps_array;
+  },
+
+  playMatch(userChoice) {
+    return this.calculateResult(userChoice);
+  },
+
+  calculateResult(userChoice) {
+    let cpuChoice = Math.floor(Math.random() * this.rps_array.length) + 1;
+    cpuChoice = this.rps_array[cpuChoice - 1];
+    const matchResult = {
+      result: '',
+      cpuChoice: cpuChoice
+    };
+    if (((userChoice === 'rock') && (cpuChoice.name === 'rock')) ||
+      ((userChoice === 'paper') && (cpuChoice.name === 'paper')) ||
+      ((userChoice === 'scissor') && (cpuChoice.name === 'scissor'))) {
+      matchResult.result = "That's a draw!";
+    } else if (((userChoice === 'rock') && (cpuChoice.name === 'paper')) ||
+      ((userChoice === 'paper') && (cpuChoice.name === 'scissor')) ||
+      ((userChoice === 'scissor') && (cpuChoice.name === 'rock'))) {
+      matchResult.result = "CPU wins!";
+    } else {
+      matchResult.result = "You win!";
+    }
+    return matchResult;
   }
 };
 

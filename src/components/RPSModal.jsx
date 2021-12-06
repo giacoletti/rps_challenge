@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RPSCard from './RPSCard';
+import RPS from '../modules/RPS';
 import { Header, Modal, Card, Image, Grid } from 'semantic-ui-react';
 
 const RPSModal = ({ rpsItem }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [matchResult, setMatchResult] = useState({});
 
   const onOpenHandler = (event) => {
-    // event.target.name
+    setMatchResult(RPS.playMatch(event.target.name));
     setOpen(true);
   };
 
@@ -22,7 +24,7 @@ const RPSModal = ({ rpsItem }) => {
       onOpen={onOpenHandler}
     >
       <Modal.Content>
-        <Header data-cy='rps-match-result' as='h1' textAlign='center'>Test result</Header>
+        <Header data-cy='rps-match-result' as='h1' textAlign='center'>{matchResult.result}</Header>
         <Grid columns='three'>
           <Grid.Row>
             <Grid.Column data-cy='rps-user-choice'>
@@ -31,7 +33,7 @@ const RPSModal = ({ rpsItem }) => {
             <Grid.Column>
             </Grid.Column>
             <Grid.Column data-cy='rps-cpu-choice'>
-              <RPSCard rpsItem={rpsItem} />
+              <RPSCard rpsItem={matchResult.cpuChoice} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
