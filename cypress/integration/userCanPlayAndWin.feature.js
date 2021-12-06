@@ -30,5 +30,9 @@ describe('Visiting the application, a user', () => {
         cy.get('.image').should('have.attr', 'name', 'scissor');
       });
     });
+
+    it('is expected to update user score', () => {
+      cy.get('[data-cy=rps-user-score]').should('contain.text', 1);
+    });
   });
 });
