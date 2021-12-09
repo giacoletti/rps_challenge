@@ -21,7 +21,8 @@ const RPS = {
     return this.rps_array;
   },
 
-  playMatch(userChoice) {
+  playMatch(userChoice, userChoicesHistory) {
+    // debugger;
     return this.calculateResult(userChoice);
   },
 

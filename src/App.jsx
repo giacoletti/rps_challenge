@@ -8,6 +8,11 @@ const App = () => {
   const [rpsArray, setRpsArray] = useState([]);
   const [userScore, setUserScore] = useState(0);
   const [cpuScore, setCpuScore] = useState(0);
+  const [userChoicesHistory, setUserChoicesHistory] = useState([]);
+
+  const updateChoicesHistory = (userChoice) => {
+    setUserChoicesHistory(oldArray => [...oldArray, userChoice]);
+  }
 
   const updateScore = (result) => {
     if (result.result === 'CPU wins!') {
@@ -20,7 +25,10 @@ const App = () => {
   const rpsCardsList = rpsArray.map((rpsItem) => {
     return (
       <div data-cy={`rps-card-${rpsItem.id}`} key={rpsItem.id}>
-        <RPSModal updateScore={updateScore} rpsItem={rpsItem}></RPSModal>
+        <RPSModal updateScore={updateScore}
+          updateChoicesHistory={updateChoicesHistory}
+          userChoicesHistory={userChoicesHistory}
+          rpsItem={rpsItem} />
       </div>
     )
   });

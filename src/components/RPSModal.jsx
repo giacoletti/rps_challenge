@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import RPSCard from './RPSCard';
 import RPS from '../modules/RPS';
-import { Header, Modal, Card, Image, Grid } from 'semantic-ui-react';
+import { Header, Modal, Card, Image, Grid, Label } from 'semantic-ui-react';
 
-const RPSModal = ({ rpsItem, updateScore }) => {
+const RPSModal = ({ rpsItem, updateScore, updateChoicesHistory, userChoicesHistory }) => {
   const [open, setOpen] = useState(false);
   const [matchResult, setMatchResult] = useState({});
 
   const onOpenHandler = (event) => {
-    const result = RPS.playMatch(event.target.name);
+    const result = RPS.playMatch(event.target.name, userChoicesHistory);
+    updateChoicesHistory(event.target.name)
     setMatchResult(result);
     updateScore(result);
     setOpen(true);
@@ -17,7 +18,6 @@ const RPSModal = ({ rpsItem, updateScore }) => {
   return (
     <Modal
       data-cy='rps-modal'
-      closeIcon
       open={open}
       trigger={<Card raised>
         <Image name={rpsItem.name} src={rpsItem.image} ui={false} />
@@ -32,7 +32,10 @@ const RPSModal = ({ rpsItem, updateScore }) => {
             <Grid.Column data-cy='rps-user-choice'>
               <RPSCard rpsItem={rpsItem} />
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column verticalAlign="middle" textAlign="center">
+              <Label size="big" color="teal" pointing="left">User</Label>
+              <Label size="big">VS</Label>
+              <Label size="big" color="orange" pointing="right">CPU</Label>
             </Grid.Column>
             <Grid.Column data-cy='rps-cpu-choice'>
               <RPSCard rpsItem={matchResult.cpuChoice} />
