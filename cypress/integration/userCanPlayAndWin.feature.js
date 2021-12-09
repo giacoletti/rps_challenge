@@ -1,4 +1,4 @@
-describe('Visiting the application, a user', () => {
+describe('Visiting the application, a user that clicks on the "Rock" card', () => {
   beforeEach(() => {
     cy.visit('/', {
       onBeforeLoad(win) {

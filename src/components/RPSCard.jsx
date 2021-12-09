@@ -3,7 +3,7 @@ import { Card, Image } from 'semantic-ui-react';
 
 const RPSCard = ({ rpsItem }) => {
   return (
-    <Card>
+    <Card raised>
       <Image name={rpsItem.name} src={rpsItem.image} ui={false} />
     </Card>
   );
