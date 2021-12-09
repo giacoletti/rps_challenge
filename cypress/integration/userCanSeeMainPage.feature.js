@@ -1,5 +1,5 @@
 describe('Visiting the application, a user', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('/');
   });
 
@@ -27,5 +27,13 @@ describe('Visiting the application, a user', () => {
     cy.get('[data-cy=rps-card-3]').within(() => {
       cy.get(".image").should('be.visible');
     });
+  });
+
+  it('is expected to display User score', () => {
+    cy.get('[data-cy=rps-user-score]').should('be.visible');
+  });
+
+  it('is expected to display Cpu score', () => {
+    cy.get('[data-cy=rps-cpu-score]').should('be.visible');
   });
 });

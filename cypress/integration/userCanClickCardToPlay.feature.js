@@ -1,5 +1,5 @@
 describe('Visiting the application, a user that clicks on the "Rock" card', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('/');
     cy.get('[data-cy=rps-card-1]').click();
   });
