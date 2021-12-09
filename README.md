@@ -40,6 +40,16 @@ Runs the app with [Cypress](https://www.cypress.io/), the next generation front 
 
 - [Thomas](https://github.com/tochman)
 - [Luke](https://github.com/lukeperrin10)
+- [Update Arrays with React useState Hook](https://www.techiediaries.com/react-usestate-hook-update-array/)
+
+## Updates/Improvement plans
+
+The game at this stage is against the cpu algorithm.
+Further improvements can be made, for instance a 2 players version can be built using [Express](http://expressjs.com/), but further studies are required.
+
+Needs improvements for mobile use, adjustments with Semantic UI can help fixing styling issues.
+
+Deployment plans are in place.
 
 ## License
 
