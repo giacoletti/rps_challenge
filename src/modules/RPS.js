@@ -22,17 +22,26 @@ const RPS = {
   },
 
   playMatch(userChoice, userChoicesHistory) {
-    // debugger;
-    return this.calculateResult(userChoice);
+    return this.calculateResult(userChoice, userChoicesHistory);
   },
 
-  calculateResult(userChoice) {
-    let cpuChoice = Math.floor(Math.random() * this.rps_array.length) + 1;
-    cpuChoice = this.rps_array[cpuChoice - 1];
+  calculateResult(userChoice, userChoicesHistory) {
+    let cpuChoice = undefined;
+    let lastIndex = userChoicesHistory.length - 1;
+    if (userChoicesHistory.length >= 2 &&
+      userChoicesHistory[lastIndex] === userChoicesHistory[lastIndex - 1]) {
+      cpuChoice = this.cpuPicksCounter(userChoicesHistory[lastIndex]);
+    };
+
+    if (!cpuChoice) {
+      cpuChoice = Math.floor(Math.random() * this.rps_array.length) + 1;
+      cpuChoice = this.rps_array[cpuChoice - 1];
+    }
     const matchResult = {
       result: '',
       cpuChoice: cpuChoice
     };
+
     if (((userChoice === 'rock') && (cpuChoice.name === 'rock')) ||
       ((userChoice === 'paper') && (cpuChoice.name === 'paper')) ||
       ((userChoice === 'scissor') && (cpuChoice.name === 'scissor'))) {
@@ -45,6 +54,22 @@ const RPS = {
       matchResult.result = "You win!";
     }
     return matchResult;
+  },
+
+  cpuPicksCounter(userChoice) {
+    switch (userChoice) {
+      case 'rock':
+        return this.rps_array[1];
+
+      case 'paper':
+        return this.rps_array[2];
+
+      case 'scissor':
+        return this.rps_array[0];
+
+      default:
+        break;
+    }
   }
 };
 

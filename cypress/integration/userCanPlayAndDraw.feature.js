@@ -1,5 +1,5 @@
 describe('Visiting the application, a user that clicks on the "Rock" card', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('/', {
       onBeforeLoad(win) {
         cy.stub(win.Math, "floor").returns(0).as('mathStub');
