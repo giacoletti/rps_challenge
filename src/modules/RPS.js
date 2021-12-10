@@ -34,8 +34,8 @@ const RPS = {
     };
 
     if (!cpuChoice) {
-      cpuChoice = Math.floor(Math.random() * this.rps_array.length) + 1;
-      cpuChoice = this.rps_array[cpuChoice - 1];
+      cpuChoice = Math.floor(Math.random() * this.rps_array.length);
+      cpuChoice = this.rps_array[cpuChoice];
     }
     const matchResult = {
       result: '',
