@@ -32,13 +32,9 @@ const App = () => {
       </div>
     )
   });
-
-  const fetchRpsData = () => {
-    setRpsArray(RPS.index());
-  };
-
+  
   useEffect(() => {
-    fetchRpsData();
+    setRpsArray(RPS.index());
   }, [])
 
   return (
