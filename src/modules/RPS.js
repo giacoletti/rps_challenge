@@ -1,24 +1,8 @@
-const RPS = {
-  rps_array: [
-    {
-      id: 1,
-      name: "rock",
-      image: "https://i.ibb.co/85RsmCg/rock-card.jpg"
-    },
-    {
-      id: 2,
-      name: "paper",
-      image: "https://i.ibb.co/K2PsRrs/paper-card.jpg"
-    },
-    {
-      id: 3,
-      name: "scissor",
-      image: "https://i.ibb.co/2kd8Gtw/scissor-card.jpg"
-    }
-  ],
+import rpsArray from '../assets/data/rpsArray';
 
+const RPS = {
   index() {
-    return this.rps_array;
+    return rpsArray;
   },
 
   playMatch(userChoice, userChoicesHistory) {
@@ -34,8 +18,8 @@ const RPS = {
     };
 
     if (!cpuChoice) {
-      cpuChoice = Math.floor(Math.random() * this.rps_array.length);
-      cpuChoice = this.rps_array[cpuChoice];
+      cpuChoice = Math.floor(Math.random() * rpsArray.length);
+      cpuChoice = rpsArray[cpuChoice];
     }
     const matchResult = {
       result: '',
@@ -59,13 +43,13 @@ const RPS = {
   cpuPicksCounter(userChoice) {
     switch (userChoice) {
       case 'rock':
-        return this.rps_array[1];
+        return rpsArray[1];
 
       case 'paper':
-        return this.rps_array[2];
+        return rpsArray[2];
 
       case 'scissor':
-        return this.rps_array[0];
+        return rpsArray[0];
 
       default:
         break;
