@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import RPS from './modules/RPS';
 import RPSModal from './components/RPSModal';
 import { Container, Header, Grid, Label, Icon } from "semantic-ui-react";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const App = () => {
+  const { userScore, cpuScore } = useSelector(state => state);
+  const dispatch = useDispatch();
 
   const [rpsArray, setRpsArray] = useState([]);
-  const [userScore, setUserScore] = useState(0);
-  const [cpuScore, setCpuScore] = useState(0);
   const [userChoicesHistory, setUserChoicesHistory] = useState([]);
 
   const updateChoicesHistory = (userChoice) => {
@@ -16,9 +18,9 @@ const App = () => {
 
   const updateScore = (result) => {
     if (result.result === 'CPU wins!') {
-      setCpuScore(cpuScore + 1);
+      dispatch({ type: 'ADD_CPU_SCORE', payload: cpuScore + 1 })
     } else if (result.result === 'You win!') {
-      setUserScore(userScore + 1);
+      dispatch({ type: 'ADD_USER_SCORE', payload: userScore + 1 })
     };
   };
 
@@ -32,7 +34,7 @@ const App = () => {
       </div>
     )
   });
-  
+
   useEffect(() => {
     setRpsArray(RPS.index());
   }, [])
