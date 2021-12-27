@@ -4,7 +4,7 @@ Rock Paper Scissor challenge issued by **Craft Academy Labs**.
 
 ## Deployment
 
-WIP
+[Rock Paper Scissor](https://rockpaperscissor-gi.netlify.app/)
 
 ## Dependencies
 
