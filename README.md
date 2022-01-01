@@ -49,8 +49,6 @@ Further improvements can be made, for instance a 2 players version can be built 
 
 Needs improvements for mobile use, adjustments with Semantic UI can help fixing styling issues.
 
-Deployment plans are in place.
-
 ## License
 
 The software is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
