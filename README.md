@@ -34,7 +34,7 @@ You will also see any lint errors in the console.
 
 ### `yarn cypress`
 
-Runs the app with [Cypress](https://www.cypress.io/), the next generation front end testing tool built for the modern web. We address the key pain points developers and QA engineers face when testing modern applications.\
+Runs the app with [Cypress](https://www.cypress.io/), the next generation front end testing tool built for the modern web. We address the key pain points developers and QA engineers face when testing modern applications.
 
 ## Acknowledgments
 
