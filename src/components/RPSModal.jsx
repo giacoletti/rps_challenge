@@ -19,7 +19,7 @@ const RPSModal = ({ rpsItem, updateScore, updateChoicesHistory, userChoicesHisto
     <Modal
       data-cy='rps-modal'
       open={open}
-      trigger={<Card raised>
+      trigger={<Card raised style={{ marginBottom: '20px' }}>
         <Image name={rpsItem.name} src={rpsItem.image} ui={false} />
       </Card>}
       onClose={() => setOpen(false)}
